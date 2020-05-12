@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
+    <service name="Descuentos">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.mtis.www.descuentos.DescuentosMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">org.mtis.www.descuentos.DescuentosSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="VerificarDescuento" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.mtis.org/Descuentos/">
+            <actionMapping>http://www.mtis.org/Descuentos/VerificarDescuento</actionMapping>
+            <outputActionMapping>http://www.mtis.org/Descuentos/Descuentos/VerificarDescuentoResponse</outputActionMapping>
+        </operation>
+        <operation name="AplicarDescuento" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.mtis.org/Descuentos/">
+            <actionMapping>http://www.mtis.org/Descuentos/AplicarDescuento</actionMapping>
+            <outputActionMapping>http://www.mtis.org/Descuentos/Descuentos/AplicarDescuentoResponse</outputActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
