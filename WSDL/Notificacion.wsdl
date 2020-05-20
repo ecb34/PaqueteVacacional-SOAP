@@ -13,8 +13,8 @@
       <xsd:element name="emailResponse">
         <xsd:complexType>
           <xsd:sequence>
-          	<xsd:element name="respuestaEmail" type="xsd:int" />
-          	<xsd:element name="CodigoRespuesta" type="xsd:int"></xsd:element>
+          	<xsd:element name="enviado" type="xsd:boolean" />
+          	<xsd:element name="CodigoError" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -30,7 +30,6 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="CodigoError" type="xsd:int"></xsd:element>
       			<xsd:element name="MensajeError" type="xsd:string"></xsd:element>
       		</xsd:sequence>
       	</xsd:complexType>
@@ -77,12 +76,15 @@
   		</wsdl:output>
   	</wsdl:operation>
   	<wsdl:operation name="MensajeError">
+
   		<soap:operation
   			soapAction="http://www.mtis.org/Notificacion/MensajeError" />
   		<wsdl:input>
+
   			<soap:body use="literal" />
   		</wsdl:input>
   		<wsdl:output>
+
   			<soap:body use="literal" />
   		</wsdl:output>
   	</wsdl:operation>

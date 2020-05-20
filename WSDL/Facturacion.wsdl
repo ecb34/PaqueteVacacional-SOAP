@@ -12,8 +12,8 @@
       <xsd:element name="CrearFacturaResponse">
         <xsd:complexType>
           <xsd:sequence>
-          	<xsd:element name="respuestaFactura" type="xsd:int" />
-          	<xsd:element name="CodigoRespuesta" type="xsd:int"></xsd:element>
+          	<xsd:element name="creada" type="xsd:boolean" />
+          	<xsd:element name="CodigoError" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -32,16 +32,22 @@
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="FacturacionSOAP" type="tns:Facturacion">
-    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-    <wsdl:operation name="CrearFactura">
-      <soap:operation soapAction="http://www.mtis.org/Facturacion/CrearFactura"/>
-      <wsdl:input>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
+
+  	<soap:binding style="document"
+  		transport="http://schemas.xmlsoap.org/soap/http" />
+  	<wsdl:operation name="CrearFactura">
+
+  		<soap:operation
+  			soapAction="http://www.mtis.org/Facturacion/CrearFactura" />
+  		<wsdl:input>
+
+  			<soap:body use="literal" />
+  		</wsdl:input>
+  		<wsdl:output>
+
+  			<soap:body use="literal" />
+  		</wsdl:output>
+  	</wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Facturacion">
     <wsdl:port binding="tns:FacturacionSOAP" name="FacturacionSOAP">
