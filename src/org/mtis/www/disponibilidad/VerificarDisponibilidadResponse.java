@@ -26,36 +26,6 @@
             
 
                         /**
-                        * field for Disponible
-                        */
-
-                        
-                                    protected boolean localDisponible ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return boolean
-                           */
-                           public  boolean getDisponible(){
-                               return localDisponible;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param Disponible
-                               */
-                               public void setDisponible(boolean param){
-                            
-                                            this.localDisponible=param;
-                                       
-
-                               }
-                            
-
-                        /**
                         * field for CodigoError
                         */
 
@@ -95,6 +65,36 @@
                                        param != java.lang.Integer.MIN_VALUE;
                                    
                                             this.localCodigoError=param;
+                                       
+
+                               }
+                            
+
+                        /**
+                        * field for Precio
+                        */
+
+                        
+                                    protected float localPrecio ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return float
+                           */
+                           public  float getPrecio(){
+                               return localPrecio;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param Precio
+                               */
+                               public void setPrecio(float param){
+                            
+                                            this.localPrecio=param;
                                        
 
                                }
@@ -158,20 +158,7 @@
 
                
                    }
-               
-                                    namespace = "";
-                                    writeStartElement(null, namespace, "disponible", xmlWriter);
-                             
-                                               if (false) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("disponible cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDisponible));
-                                               }
-                                    
-                                   xmlWriter.writeEndElement();
-                              if (localCodigoErrorTracker){
+                if (localCodigoErrorTracker){
                                     namespace = "";
                                     writeStartElement(null, namespace, "codigoError", xmlWriter);
                              
@@ -185,6 +172,19 @@
                                     
                                    xmlWriter.writeEndElement();
                              }
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "precio", xmlWriter);
+                             
+                                               if (java.lang.Float.isNaN(localPrecio)) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("precio cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrecio));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
                     xmlWriter.writeEndElement();
                
 
@@ -369,19 +369,19 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                
-                                      elementList.add(new javax.xml.namespace.QName("",
-                                                                      "disponible"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localDisponible));
-                             if (localCodigoErrorTracker){
+                 if (localCodigoErrorTracker){
                                       elementList.add(new javax.xml.namespace.QName("",
                                                                       "codigoError"));
                                  
                                 elementList.add(
                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoError));
                             }
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "precio"));
+                                 
+                                elementList.add(
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrecio));
+                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -460,31 +460,6 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","disponible").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"disponible" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setDisponible(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
                                     if (reader.isStartElement() && new javax.xml.namespace.QName("","codigoError").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
@@ -507,7 +482,32 @@
                                                object.setCodigoError(java.lang.Integer.MIN_VALUE);
                                            
                                     }
-                                  
+                                
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","precio").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"precio" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setPrecio(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToFloat(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                              
                             while (!reader.isStartElement() && !reader.isEndElement())
                                 reader.next();
                             

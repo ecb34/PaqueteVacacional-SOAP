@@ -26,60 +26,75 @@
             
 
                         /**
-                        * field for RespuestaDescuento
+                        * field for CodigoError
                         */
 
                         
-                                    protected boolean localRespuestaDescuento ;
+                                    protected int localCodigoError ;
                                 
+                           /*  This tracker boolean wil be used to detect whether the user called the set method
+                          *   for this attribute. It will be used to determine whether to include this field
+                           *   in the serialized XML
+                           */
+                           protected boolean localCodigoErrorTracker = false ;
+
+                           public boolean isCodigoErrorSpecified(){
+                               return localCodigoErrorTracker;
+                           }
+
+                           
 
                            /**
                            * Auto generated getter method
-                           * @return boolean
+                           * @return int
                            */
-                           public  boolean getRespuestaDescuento(){
-                               return localRespuestaDescuento;
+                           public  int getCodigoError(){
+                               return localCodigoError;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param RespuestaDescuento
+                               * @param param CodigoError
                                */
-                               public void setRespuestaDescuento(boolean param){
+                               public void setCodigoError(int param){
                             
-                                            this.localRespuestaDescuento=param;
+                                       // setting primitive attribute tracker to true
+                                       localCodigoErrorTracker =
+                                       param != java.lang.Integer.MIN_VALUE;
+                                   
+                                            this.localCodigoError=param;
                                        
 
                                }
                             
 
                         /**
-                        * field for CodigoRespuesta
+                        * field for PrecioFinal
                         */
 
                         
-                                    protected int localCodigoRespuesta ;
+                                    protected float localPrecioFinal ;
                                 
 
                            /**
                            * Auto generated getter method
-                           * @return int
+                           * @return float
                            */
-                           public  int getCodigoRespuesta(){
-                               return localCodigoRespuesta;
+                           public  float getPrecioFinal(){
+                               return localPrecioFinal;
                            }
 
                            
                         
                             /**
                                * Auto generated setter method
-                               * @param param CodigoRespuesta
+                               * @param param PrecioFinal
                                */
-                               public void setCodigoRespuesta(int param){
+                               public void setPrecioFinal(float param){
                             
-                                            this.localCodigoRespuesta=param;
+                                            this.localPrecioFinal=param;
                                        
 
                                }
@@ -143,29 +158,29 @@
 
                
                    }
-               
+                if (localCodigoErrorTracker){
                                     namespace = "";
-                                    writeStartElement(null, namespace, "respuestaDescuento", xmlWriter);
+                                    writeStartElement(null, namespace, "CodigoError", xmlWriter);
                              
-                                               if (false) {
+                                               if (localCodigoError==java.lang.Integer.MIN_VALUE) {
                                            
-                                                         throw new org.apache.axis2.databinding.ADBException("respuestaDescuento cannot be null!!");
+                                                         throw new org.apache.axis2.databinding.ADBException("CodigoError cannot be null!!");
                                                       
                                                } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localRespuestaDescuento));
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoError));
                                                }
                                     
                                    xmlWriter.writeEndElement();
-                             
+                             }
                                     namespace = "";
-                                    writeStartElement(null, namespace, "CodigoRespuesta", xmlWriter);
+                                    writeStartElement(null, namespace, "precioFinal", xmlWriter);
                              
-                                               if (localCodigoRespuesta==java.lang.Integer.MIN_VALUE) {
+                                               if (java.lang.Float.isNaN(localPrecioFinal)) {
                                            
-                                                         throw new org.apache.axis2.databinding.ADBException("CodigoRespuesta cannot be null!!");
+                                                         throw new org.apache.axis2.databinding.ADBException("precioFinal cannot be null!!");
                                                       
                                                } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoRespuesta));
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrecioFinal));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -354,18 +369,18 @@
                  java.util.ArrayList elementList = new java.util.ArrayList();
                  java.util.ArrayList attribList = new java.util.ArrayList();
 
-                
+                 if (localCodigoErrorTracker){
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "respuestaDescuento"));
+                                                                      "CodigoError"));
                                  
                                 elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localRespuestaDescuento));
-                            
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoError));
+                            }
                                       elementList.add(new javax.xml.namespace.QName("",
-                                                                      "CodigoRespuesta"));
+                                                                      "precioFinal"));
                                  
                                 elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localCodigoRespuesta));
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrecioFinal));
                             
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
@@ -445,43 +460,44 @@
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","respuestaDescuento").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","CodigoError").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"respuestaDescuento" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"CodigoError" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setRespuestaDescuento(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToBoolean(content));
+                                              object.setCodigoError(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
                                               
                                         reader.next();
                                     
                               }  // End of if for expected property start element
                                 
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
+                                    else {
+                                        
+                                               object.setCodigoError(java.lang.Integer.MIN_VALUE);
+                                           
+                                    }
+                                
                                     
                                     while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
                                 
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","CodigoRespuesta").equals(reader.getName())){
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","precioFinal").equals(reader.getName())){
                                 
                                     nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
                                     if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"CodigoRespuesta" +"  cannot be null");
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"precioFinal" +"  cannot be null");
                                     }
                                     
 
                                     java.lang.String content = reader.getElementText();
                                     
-                                              object.setCodigoRespuesta(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              object.setPrecioFinal(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToFloat(content));
                                               
                                         reader.next();
                                     

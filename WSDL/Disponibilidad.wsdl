@@ -12,9 +12,11 @@
       </xsd:element>
       <xsd:element name="VerificarDisponibilidadResponse">
         <xsd:complexType>
-          <xsd:sequence>
-          	<xsd:element name="disponible" type="xsd:boolean" />
-          	<xsd:element name="codigoError" type="xsd:int" maxOccurs="1" minOccurs="0"></xsd:element>
+          <xsd:sequence>
+          	<xsd:element name="codigoError" type="xsd:int"
+          		maxOccurs="1" minOccurs="0">
+          	</xsd:element>
+          	<xsd:element name="precio" type="xsd:float"></xsd:element>
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>

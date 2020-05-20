@@ -29,28 +29,22 @@ public class DisponibilidadSkeleton {
 		
 		try{
 			db.statement = db.connection.createStatement();
-			String query = String.format("SELECT id FROM paquete WHERE id=%s AND cantidad >= %s", data.getId(), data.getUnidades());
+			String query = String.format("SELECT precio FROM paquete WHERE id=%s AND cantidad >= %s", data.getId(), data.getUnidades());
 			db.result = db.statement.executeQuery(query);
 			if(db.result.first()){
-				res.setDisponible(true);
+				res.setPrecio(db.result.getFloat(1));
 			}else{
 				res.setCodigoError(404);
-				res.setDisponible(false);
+				res.setPrecio(-1);
 			}
 		}catch(Exception err){
 			res.setCodigoError(500);
-			res.setDisponible(false);
+			res.setPrecio(-1);
 		}
 		
 		return res;
 	}
 
-	/**
-	 * Auto generated method signature
-	 * 
-	 * @param actualizarDisponibilidad
-	 * @return actualizarDisponibilidadResponse
-	 */
 
 	public org.mtis.www.disponibilidad.ActualizarDisponibilidadResponse actualizarDisponibilidad(
 			org.mtis.www.disponibilidad.ActualizarDisponibilidad data) {

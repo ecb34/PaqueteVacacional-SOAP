@@ -55,36 +55,6 @@
                                }
                             
 
-                        /**
-                        * field for IdtipoReserva
-                        */
-
-                        
-                                    protected int localIdtipoReserva ;
-                                
-
-                           /**
-                           * Auto generated getter method
-                           * @return int
-                           */
-                           public  int getIdtipoReserva(){
-                               return localIdtipoReserva;
-                           }
-
-                           
-                        
-                            /**
-                               * Auto generated setter method
-                               * @param param IdtipoReserva
-                               */
-                               public void setIdtipoReserva(int param){
-                            
-                                            this.localIdtipoReserva=param;
-                                       
-
-                               }
-                            
-
      
      
         /**
@@ -153,19 +123,6 @@
                                                       
                                                } else {
                                                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdUsuario));
-                                               }
-                                    
-                                   xmlWriter.writeEndElement();
-                             
-                                    namespace = "";
-                                    writeStartElement(null, namespace, "idtipoReserva", xmlWriter);
-                             
-                                               if (localIdtipoReserva==java.lang.Integer.MIN_VALUE) {
-                                           
-                                                         throw new org.apache.axis2.databinding.ADBException("idtipoReserva cannot be null!!");
-                                                      
-                                               } else {
-                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdtipoReserva));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -361,12 +318,6 @@
                                 elementList.add(
                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdUsuario));
                             
-                                      elementList.add(new javax.xml.namespace.QName("",
-                                                                      "idtipoReserva"));
-                                 
-                                elementList.add(
-                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdtipoReserva));
-                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -456,31 +407,6 @@
                                     java.lang.String content = reader.getElementText();
                                     
                                               object.setIdUsuario(
-                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
-                                              
-                                        reader.next();
-                                    
-                              }  // End of if for expected property start element
-                                
-                                else{
-                                    // A start element we are not expecting indicates an invalid parameter was passed
-                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
-                                }
-                            
-                                    
-                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
-                                
-                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","idtipoReserva").equals(reader.getName())){
-                                
-                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
-                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
-                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"idtipoReserva" +"  cannot be null");
-                                    }
-                                    
-
-                                    java.lang.String content = reader.getElementText();
-                                    
-                                              object.setIdtipoReserva(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
                                               
                                         reader.next();

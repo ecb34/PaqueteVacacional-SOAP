@@ -6,16 +6,18 @@
         <xsd:complexType>
           <xsd:sequence>
           	<xsd:element name="idUsuario" type="xsd:int"/>
-          	<xsd:element name="idtipoReserva" type="xsd:int"/>
+
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
       <xsd:element name="VerificarDescuentoResponse">
         <xsd:complexType>
           <xsd:sequence>
-          	<xsd:element name="verificado" type="xsd:boolean"/>
+
           	<xsd:element name="idDescuento" type="xsd:int"/>
-          	<xsd:element name="CodigoRespuesta" type="xsd:int"/>
+          	<xsd:element maxOccurs="1" minOccurs="0" name="CodigoError" type="xsd:int">
+          	</xsd:element>
+
           </xsd:sequence>
         </xsd:complexType>
       </xsd:element>
@@ -24,6 +26,7 @@
       		<xsd:sequence>
 
       			<xsd:element name="idDescuento" type="xsd:int"/>
+      			<xsd:element name="precioPaquetes" type="xsd:float"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>
@@ -31,9 +34,9 @@
       	<xsd:complexType>
       		<xsd:sequence>
 
-      			<xsd:element name="respuestaDescuento" type="xsd:boolean">
+      			<xsd:element maxOccurs="1" minOccurs="0" name="CodigoError" type="xsd:int">
       			</xsd:element>
-      			<xsd:element name="CodigoRespuesta" type="xsd:int"/>
+      			<xsd:element name="precioFinal" type="xsd:float"/>
       		</xsd:sequence>
       	</xsd:complexType>
       </xsd:element>

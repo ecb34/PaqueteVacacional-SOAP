@@ -18,7 +18,7 @@ public class Mysql {
 		try {
 			// Driver JDBC
 			Class.forName("com.mysql.jdbc.Driver");
-			String servidor = "jdbc:mysql://localhost:3306/paquete";
+			String servidor = "jdbc:mysql://localhost:3306/paquetevacacional";
 			String usuario = "root";
 			String pass = "";
 			connection = DriverManager.getConnection(servidor, usuario, pass);

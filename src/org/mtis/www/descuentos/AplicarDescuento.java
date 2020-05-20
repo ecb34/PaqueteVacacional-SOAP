@@ -55,6 +55,36 @@
                                }
                             
 
+                        /**
+                        * field for PrecioPaquetes
+                        */
+
+                        
+                                    protected float localPrecioPaquetes ;
+                                
+
+                           /**
+                           * Auto generated getter method
+                           * @return float
+                           */
+                           public  float getPrecioPaquetes(){
+                               return localPrecioPaquetes;
+                           }
+
+                           
+                        
+                            /**
+                               * Auto generated setter method
+                               * @param param PrecioPaquetes
+                               */
+                               public void setPrecioPaquetes(float param){
+                            
+                                            this.localPrecioPaquetes=param;
+                                       
+
+                               }
+                            
+
      
      
         /**
@@ -123,6 +153,19 @@
                                                       
                                                } else {
                                                     xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdDescuento));
+                                               }
+                                    
+                                   xmlWriter.writeEndElement();
+                             
+                                    namespace = "";
+                                    writeStartElement(null, namespace, "precioPaquetes", xmlWriter);
+                             
+                                               if (java.lang.Float.isNaN(localPrecioPaquetes)) {
+                                           
+                                                         throw new org.apache.axis2.databinding.ADBException("precioPaquetes cannot be null!!");
+                                                      
+                                               } else {
+                                                    xmlWriter.writeCharacters(org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrecioPaquetes));
                                                }
                                     
                                    xmlWriter.writeEndElement();
@@ -318,6 +361,12 @@
                                 elementList.add(
                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localIdDescuento));
                             
+                                      elementList.add(new javax.xml.namespace.QName("",
+                                                                      "precioPaquetes"));
+                                 
+                                elementList.add(
+                                   org.apache.axis2.databinding.utils.ConverterUtil.convertToString(localPrecioPaquetes));
+                            
 
                 return new org.apache.axis2.databinding.utils.reader.ADBXMLStreamReaderImpl(qName, elementList.toArray(), attribList.toArray());
             
@@ -408,6 +457,31 @@
                                     
                                               object.setIdDescuento(
                                                     org.apache.axis2.databinding.utils.ConverterUtil.convertToInt(content));
+                                              
+                                        reader.next();
+                                    
+                              }  // End of if for expected property start element
+                                
+                                else{
+                                    // A start element we are not expecting indicates an invalid parameter was passed
+                                    throw new org.apache.axis2.databinding.ADBException("Unexpected subelement " + reader.getName());
+                                }
+                            
+                                    
+                                    while (!reader.isStartElement() && !reader.isEndElement()) reader.next();
+                                
+                                    if (reader.isStartElement() && new javax.xml.namespace.QName("","precioPaquetes").equals(reader.getName())){
+                                
+                                    nillableValue = reader.getAttributeValue("http://www.w3.org/2001/XMLSchema-instance","nil");
+                                    if ("true".equals(nillableValue) || "1".equals(nillableValue)){
+                                        throw new org.apache.axis2.databinding.ADBException("The element: "+"precioPaquetes" +"  cannot be null");
+                                    }
+                                    
+
+                                    java.lang.String content = reader.getElementText();
+                                    
+                                              object.setPrecioPaquetes(
+                                                    org.apache.axis2.databinding.utils.ConverterUtil.convertToFloat(content));
                                               
                                         reader.next();
                                     

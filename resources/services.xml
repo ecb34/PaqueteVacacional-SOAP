@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?><!-- This file was auto-generated from WSDL --><!-- by the Apache Axis2 version: 1.6.3  Built on : Jun 27, 2015 (11:17:49 BST) --><serviceGroup>
-    <service name="Facturacion">
+    <service name="Disponibilidad">
         <messageReceivers>
-            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.mtis.www.facturacion.FacturacionMessageReceiverInOut"/>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="org.mtis.www.disponibilidad.DisponibilidadMessageReceiverInOut"/>
         </messageReceivers>
-        <parameter name="ServiceClass">org.mtis.www.facturacion.FacturacionSkeleton</parameter>
+        <parameter name="ServiceClass">org.mtis.www.disponibilidad.DisponibilidadSkeleton</parameter>
         <parameter name="useOriginalwsdl">true</parameter>
         <parameter name="modifyUserWSDLPortAddress">true</parameter>
-        <operation name="CrearFactura" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.mtis.org/Facturacion/">
-            <actionMapping>http://www.mtis.org/Facturacion/CrearFactura</actionMapping>
-            <outputActionMapping>http://www.mtis.org/Facturacion/Facturacion/CrearFacturaResponse</outputActionMapping>
+        <operation name="VerificarDisponibilidad" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.mtis.org/Disponibilidad/">
+            <actionMapping>http://www.mtis.org/Disponibilidad/VerificarDisponibilidad</actionMapping>
+            <outputActionMapping>http://www.mtis.org/Disponibilidad/Disponibilidad/VerificarDisponibilidadResponse</outputActionMapping>
+        </operation>
+        <operation name="ActualizarDisponibilidad" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://www.mtis.org/Disponibilidad/">
+            <actionMapping>http://www.mtis.org/Disponibilidad/ActualizarDisponibilidad</actionMapping>
+            <outputActionMapping>http://www.mtis.org/Disponibilidad/Disponibilidad/ActualizarDisponibilidadResponse</outputActionMapping>
         </operation>
     </service>
 </serviceGroup>
