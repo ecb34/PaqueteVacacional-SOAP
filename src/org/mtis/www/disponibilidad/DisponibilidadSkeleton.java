@@ -56,14 +56,15 @@ public class DisponibilidadSkeleton {
 			
 			db.statement = db.connection.createStatement();
 			String query = String.format("UPDATE paquete SET cantidad = cantidad - %s WHERE id=%s and cantidad >=%s", data.getUnidades(), data.getId(), data.getUnidades());
-			db.result = db.statement.executeQuery(query);
-			if(db.result.rowUpdated()){
+			int rowsUpdated = db.statement.executeUpdate(query);
+			if(rowsUpdated == 1){
 				res.setActualizado(true);
 			}else{
 				res.setActualizado(false);
 				res.setCodigoError(404);
 			}
 		}catch(Exception err){
+			System.out.println(err.getMessage());
 			res.setActualizado(false);
 			res.setCodigoError(500);
 		}

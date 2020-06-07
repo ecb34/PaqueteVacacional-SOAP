@@ -97,7 +97,7 @@
   </wsdl:binding>
   <wsdl:service name="Descuentos">
     <wsdl:port binding="tns:DescuentosSOAP" name="DescuentosSOAP">
-      <soap:address location="http://www.example.org/"/>
+      <soap:address location="http://localhost:9080/PaqueteVacacional/services/Descuentos?wsdl"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

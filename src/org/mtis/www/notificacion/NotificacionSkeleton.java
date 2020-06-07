@@ -11,11 +11,14 @@ import java.util.Properties;
 
 import javax.mail.Message;
 import javax.mail.MessagingException;
+import javax.mail.Multipart;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 /**
  * NotificacionSkeleton java skeleton for the axisService
@@ -54,7 +57,7 @@ public class NotificacionSkeleton {
 
             protected PasswordAuthentication getPasswordAuthentication() {
 
-                return new PasswordAuthentication("sendermtis@gmail.com", "mtissender2020");
+                return new PasswordAuthentication("sendermtis@gmail.com", "mtissender2019");
 
             }
 
@@ -76,9 +79,17 @@ public class NotificacionSkeleton {
             // Set Subject: header field
             message.setSubject("Reserva realizada");
 
-            // Now set the actual message
-            message.setText("Buenos días, su reserva con id " + email.getIdReserva() + " ha sido realizada correctamente");
-
+            
+            MimeBodyPart messageBodyPart = new MimeBodyPart();
+            messageBodyPart.setContent("Buenos días, su reserva con id " + email.getIdReserva() + " ha sido realizada correctamente, le adjuntamos su factura", "text/html");
+            
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(messageBodyPart);
+            MimeBodyPart attachPart = new MimeBodyPart();
+            String fileName = "../factura_" + email.getIdReserva() + ".pdf";
+            attachPart.attachFile(fileName);
+            multipart.addBodyPart(attachPart);
+            message.setContent(multipart);
             System.out.println("sending...");
             // Send message
             Transport.send(message);
@@ -86,8 +97,8 @@ public class NotificacionSkeleton {
             EmailResponse response = new EmailResponse();
             response.setEnviado(true);
             return response;
-        } catch (MessagingException mex) {
-            mex.printStackTrace();
+        } catch (Exception ex) {
+            ex.printStackTrace();
             EmailResponse response = new EmailResponse();
             response.setEnviado(false);
             response.setCodigoError(400);

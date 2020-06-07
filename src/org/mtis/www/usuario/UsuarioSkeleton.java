@@ -27,10 +27,9 @@ public class UsuarioSkeleton {
 		Mysql db = new Mysql();
 		db.MySQLConnect();
 		VerificarUsuarioResponse res = new VerificarUsuarioResponse();
-		
 		try{
 			db.statement = db.connection.createStatement();
-			String query = String.format("SELECT usuario FROM usuario WHERE usuario=%s AND password >= %s", data.getUsuario(), data.getPassword());
+			String query = String.format("SELECT usuario FROM usuario WHERE usuario='%s' AND password = '%s'", data.getUsuario(), data.getPassword());
 			db.result = db.statement.executeQuery(query);
 			if(db.result.first()){
 				res.setVerificado(true);

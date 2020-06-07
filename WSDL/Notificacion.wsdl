@@ -91,7 +91,7 @@
   </wsdl:binding>
   <wsdl:service name="Notificacion">
     <wsdl:port binding="tns:NotificacionSOAP" name="NotificacionSOAP">
-      <soap:address location="http://www.example.org/"/>
+      <soap:address location="http://localhost:9080/PaqueteVacacional/services/Notificacion?wsdl"/>
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
