@@ -32,7 +32,7 @@ public class DisponibilidadSkeleton {
 			String query = String.format("SELECT precio FROM paquete WHERE id=%s AND cantidad >= %s", data.getId(), data.getUnidades());
 			db.result = db.statement.executeQuery(query);
 			if(db.result.first()){
-				res.setPrecio(db.result.getFloat(1));
+				res.setPrecio(db.result.getFloat(1) * data.getUnidades());
 			}else{
 				res.setCodigoError(404);
 				res.setPrecio(-1);

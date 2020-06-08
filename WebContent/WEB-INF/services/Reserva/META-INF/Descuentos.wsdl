@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Descuentos" targetNamespace="http://www.mtis.org/Descuentos/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.mtis.org/Descuentos/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.mtis.org/Descuentos/">
+      <xsd:element name="VerificarDescuento">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="idUsuario" type="xsd:int"/>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerificarDescuentoResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element name="idDescuento" type="xsd:int"/>
+          	<xsd:element maxOccurs="1" minOccurs="0" name="CodigoError" type="xsd:int">
+          	</xsd:element>
+
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AplicarDescuento">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="idDescuento" type="xsd:int"/>
+      			<xsd:element name="precioPaquetes" type="xsd:float"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="AplicarDescuentoResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element maxOccurs="1" minOccurs="0" name="CodigoError" type="xsd:int">
+      			</xsd:element>
+      			<xsd:element name="precioFinal" type="xsd:float"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="AplicarDescuentoResponse">
+    <wsdl:part name="parameters" element="tns:AplicarDescuentoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VerificarDescuentoRequest">
+    <wsdl:part name="parameters" element="tns:VerificarDescuento">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="AplicarDescuentoRequest">
+    <wsdl:part name="parameters" element="tns:AplicarDescuento">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VerificarDescuentoResponse">
+    <wsdl:part name="parameters" element="tns:VerificarDescuentoResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Descuentos">
+    <wsdl:operation name="VerificarDescuento">
+      <wsdl:input message="tns:VerificarDescuentoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:VerificarDescuentoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AplicarDescuento">
+      <wsdl:input message="tns:AplicarDescuentoRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:AplicarDescuentoResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DescuentosSOAP" type="tns:Descuentos">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="VerificarDescuento">
+      <soap:operation soapAction="http://www.mtis.org/Descuentos/VerificarDescuento"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AplicarDescuento">
+      <soap:operation soapAction="http://www.mtis.org/Descuentos/AplicarDescuento"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Descuentos">
+    <wsdl:port name="DescuentosSOAP" binding="tns:DescuentosSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

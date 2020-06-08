@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Facturacion" targetNamespace="http://www.mtis.org/Facturacion/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.mtis.org/Facturacion/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.mtis.org/Facturacion/">
+      <xsd:element name="CrearFactura">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="idReserva" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="CrearFacturaResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="creada" type="xsd:boolean"/>
+          	<xsd:element maxOccurs="1" minOccurs="0" name="CodigoError" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="CrearFacturaRequest">
+    <wsdl:part name="parameters" element="tns:CrearFactura">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CrearFacturaResponse">
+    <wsdl:part name="parameters" element="tns:CrearFacturaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Facturacion">
+    <wsdl:operation name="CrearFactura">
+      <wsdl:input message="tns:CrearFacturaRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:CrearFacturaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FacturacionSOAP" type="tns:Facturacion">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CrearFactura">
+      <soap:operation soapAction="http://www.mtis.org/Facturacion/CrearFactura"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Facturacion">
+    <wsdl:port name="FacturacionSOAP" binding="tns:FacturacionSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

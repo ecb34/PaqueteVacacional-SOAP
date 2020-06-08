@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Usuario" targetNamespace="http://www.mtis.org/Usuario/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.mtis.org/Usuario/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.mtis.org/Usuario/">
+      <xsd:element name="VerificarUsuario">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="usuario" type="xsd:string"/>
+          	<xsd:element name="password" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerificarUsuarioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="verificado" type="xsd:boolean"/>
+          	<xsd:element maxOccurs="1" minOccurs="0" name="codigoError" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificarUsuarioResponse">
+    <wsdl:part name="parameters" element="tns:VerificarUsuarioResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VerificarUsuarioRequest">
+    <wsdl:part name="parameters" element="tns:VerificarUsuario">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Usuario">
+    <wsdl:operation name="VerificarUsuario">
+      <wsdl:input message="tns:VerificarUsuarioRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:VerificarUsuarioResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="UsuarioSOAP" type="tns:Usuario">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="VerificarUsuario">
+      <soap:operation soapAction="http://www.mtis.org/Usuario/VerificarUsuario"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Usuario">
+    <wsdl:port name="UsuarioSOAP" binding="tns:UsuarioSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

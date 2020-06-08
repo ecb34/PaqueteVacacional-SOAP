@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="Disponibilidad" targetNamespace="http://www.mtis.org/Disponibilidad/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://www.mtis.org/Disponibilidad/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.mtis.org/Disponibilidad/">
+      <xsd:element name="VerificarDisponibilidad">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="id" type="xsd:int"/>
+          	<xsd:element name="unidades" type="xsd:int"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="VerificarDisponibilidadResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+
+          	<xsd:element maxOccurs="1" minOccurs="0" name="codigoError" type="xsd:int">
+          	</xsd:element>
+          	<xsd:element name="precio" type="xsd:float"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizarDisponibilidad">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:int"/>
+      			<xsd:element name="unidades" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ActualizarDisponibilidadResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="actualizado" type="xsd:boolean"/>
+      			<xsd:element maxOccurs="1" minOccurs="0" name="codigoError" type="xsd:int"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="VerificarDisponibilidadRequest">
+    <wsdl:part name="parameters" element="tns:VerificarDisponibilidad">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ActualizarDisponibilidadRequest">
+    <wsdl:part name="parameters" element="tns:ActualizarDisponibilidad">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="ActualizarDisponibilidadResponse">
+    <wsdl:part name="parameters" element="tns:ActualizarDisponibilidadResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="VerificarDisponibilidadResponse">
+    <wsdl:part name="parameters" element="tns:VerificarDisponibilidadResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="Disponibilidad">
+    <wsdl:operation name="VerificarDisponibilidad">
+      <wsdl:input message="tns:VerificarDisponibilidadRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:VerificarDisponibilidadResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDisponibilidad">
+      <wsdl:input message="tns:ActualizarDisponibilidadRequest">
+    </wsdl:input>
+      <wsdl:output message="tns:ActualizarDisponibilidadResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="DisponibilidadSOAP" type="tns:Disponibilidad">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="VerificarDisponibilidad">
+      <soap:operation soapAction="http://www.mtis.org/Disponibilidad/VerificarDisponibilidad"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarDisponibilidad">
+      <soap:operation soapAction="http://www.mtis.org/Disponibilidad/ActualizarDisponibilidad"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Disponibilidad">
+    <wsdl:port name="DisponibilidadSOAP" binding="tns:DisponibilidadSOAP">
+      <soap:address location="http://www.example.org/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

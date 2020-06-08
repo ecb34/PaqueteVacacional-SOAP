@@ -20,6 +20,8 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 
+import mysql.Mysql;
+
 /**
  * NotificacionSkeleton java skeleton for the axisService
  */
@@ -79,14 +81,22 @@ public class NotificacionSkeleton {
             // Set Subject: header field
             message.setSubject("Reserva realizada");
 
-            
+            Mysql db = new Mysql();
+			db.MySQLConnect();
+			db.statement = db.connection.createStatement();
+			String query = "SELECT id FROM reserva ORDER BY id DESC LIMIT 1";
+			db.result = db.statement.executeQuery(query);
+			int id = 1;
+			if (db.result.first()) {
+				id = db.result.getInt(1);
+			}
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setContent("Buenos días, su reserva con id " + email.getIdReserva() + " ha sido realizada correctamente, le adjuntamos su factura", "text/html");
+            messageBodyPart.setContent("Buenos días, su reserva con id " + id + " ha sido realizada correctamente, le adjuntamos su factura", "text/html");
             
             Multipart multipart = new MimeMultipart();
             multipart.addBodyPart(messageBodyPart);
             MimeBodyPart attachPart = new MimeBodyPart();
-            String fileName = "../factura_" + email.getIdReserva() + ".pdf";
+            String fileName = "../factura_" + id + ".pdf";
             attachPart.attachFile(fileName);
             multipart.addBodyPart(attachPart);
             message.setContent(multipart);
